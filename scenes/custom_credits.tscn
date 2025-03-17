@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cersatvdh6mul"]
+
+[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_menus_template/base/scenes/credits/credits.tscn" id="1_64vgp"]
+[ext_resource type="Script" uid="uid://c03l0kn4j8dqa" path="res://scripts/custom_credits.gd" id="1_n835e"]
+[ext_resource type="Texture2D" uid="uid://xgvtrnuf8645" path="res://imgs/_6a96927c-b80d-4b77-ae27-1872bd4c2403.jpeg" id="2_o755v"]
+[ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="3_q2imw"]
+[ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="4_m776r"]
+[ext_resource type="AudioStream" uid="uid://cd5w5tqj4ieco" path="res://sounds/El_Pirata_que_baila_Mi_corazon_encantado_XD.mp3" id="5_yq7ir"]
+[ext_resource type="SpriteFrames" uid="uid://chi6yq24mgc1b" path="res://imgs/UI/cec01d7f0daca356b1d991a3f8aa40c2.gif" id="6_mowk4"]
+[ext_resource type="Script" uid="uid://b53mlws2cb861" path="res://scripts/pirate_gif.gd" id="7_k6wa7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m776r"]
+
+[node name="CustomCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n835e")
+
+[node name="Credits" parent="." instance=ExtResource("1_64vgp")]
+layout_mode = 1
+attribution_file_path = "res://addons/ATTRIBUTION.md"
+
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -6
+position = Vector2(244, 381)
+texture = ExtResource("2_o755v")
+
+[node name="BackButton" type="Button" parent="."]
+material = SubResource("ShaderMaterial_m776r")
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1254.0
+offset_bottom = 639.0
+scale = Vector2(0.07, 0.07)
+size_flags_horizontal = 3
+text = "Atras"
+icon = ExtResource("4_m776r")
+flat = true
+
+[node name="GoBackNode" type="Node" parent="."]
+script = ExtResource("3_q2imw")
+prev_scene = "uid://b0ic2ni2kyxy2"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yq7ir")
+autoplay = true
+parameters/looping = true
+
+[node name="PirateGif" type="AnimatedSprite2D" parent="."]
+z_index = -3
+position = Vector2(60, 482)
+scale = Vector2(0.425714, 0.425714)
+sprite_frames = ExtResource("6_mowk4")
+animation = &"gif"
+frame_progress = 0.790098
+script = ExtResource("7_k6wa7")
+
+[connection signal="end_reached" from="Credits" to="GoBackNode" method="go_back"]
+[connection signal="pressed" from="BackButton" to="GoBackNode" method="go_back"]

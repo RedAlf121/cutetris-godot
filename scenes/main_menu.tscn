@@ -1,0 +1,189 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0ic2ni2kyxy2"]
+
+[ext_resource type="Texture2D" uid="uid://xgvtrnuf8645" path="res://imgs/_6a96927c-b80d-4b77-ae27-1872bd4c2403.jpeg" id="1_8ln24"]
+[ext_resource type="FontFile" uid="uid://c0wjck8lg4vxb" path="res://fonts/noto-sans/NotoSans-Black.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://ck3tla0i0cs12" path="res://scripts/exit.gd" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://c8woe5t3vfdmn" path="res://imgs/UI/CUJAE-02.png" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://djcsktvc008xs" path="res://scripts/gotoscene.gd" id="2_wu84c"]
+[ext_resource type="PackedScene" uid="uid://cersatvdh6mul" path="res://scenes/custom_credits.tscn" id="5_rtw2f"]
+[ext_resource type="Script" uid="uid://myeqpmooqun2" path="res://scripts/animation_player.gd" id="7_oa1go"]
+
+[sub_resource type="Animation" id="Animation_rtw2f"]
+resource_name = "move"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 0.0769466),
+"update": 0,
+"values": [0.0, 3793.55]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.41),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oa1go"]
+_data = {
+&"RESET": SubResource("Animation_oa1go"),
+&"move": SubResource("Animation_rtw2f")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_rtw2f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 47.0076, 2272.29, 0, 0, 0, 0, 0, 7718.26)
+}
+point_count = 2
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(244, 381)
+texture = ExtResource("1_8ln24")
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(210, -99.5)
+scale = Vector2(0.0701844, 0.0854546)
+skew = 0.00390625
+texture = ExtResource("2_ekxnf")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 416.0
+offset_bottom = 650.0
+alignment = 2
+
+[node name="Start" type="Button" parent="Buttons"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 33
+text = "Jugar
+"
+flat = true
+script = ExtResource("2_wu84c")
+
+[node name="HSeparator" type="HSeparator" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Options" type="Button" parent="Buttons"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 33
+text = "Opciones
+"
+flat = true
+script = ExtResource("2_wu84c")
+
+[node name="HSeparator2" type="HSeparator" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Credits" type="Button" parent="Buttons"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 33
+text = "Créditos
+"
+flat = true
+script = ExtResource("2_wu84c")
+nextScene = ExtResource("5_rtw2f")
+
+[node name="HSeparator4" type="HSeparator" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="Buttons"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 33
+text = "Salir
+"
+flat = true
+script = ExtResource("2_bqqt6")
+
+[node name="HSeparator3" type="HSeparator" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_oa1go")
+}
+script = ExtResource("7_oa1go")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(207, -281)
+scale = Vector2(0.0638196, 0.0798755)
+curve = SubResource("Curve2D_rtw2f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(47.0076, 2272.29)
+rotation = 1.57943
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../../title")
+update_rotation = false
+update_scale = false
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="Buttons/Options" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="Buttons/Credits" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="Buttons/Exit" method="_on_pressed"]

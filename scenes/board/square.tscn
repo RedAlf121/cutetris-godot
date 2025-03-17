@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn57rng00kogb"]
+
+[ext_resource type="Script" uid="uid://opfcj34viaon" path="res://scripts/square.gd" id="2_3rtsr"]
+
+[node name="Slot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+script = ExtResource("2_3rtsr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1

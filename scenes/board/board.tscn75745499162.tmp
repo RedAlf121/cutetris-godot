@@ -1,0 +1,359 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgr3blxh4e8q"]
+
+[ext_resource type="PackedScene" uid="uid://dn57rng00kogb" path="res://scenes/board/square.tscn" id="1_jnyf0"]
+[ext_resource type="Script" uid="uid://bgr6qrbp2wced" path="res://scripts/board.gd" id="1_knosr"]
+[ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="1_kymhv"]
+[ext_resource type="FontFile" uid="uid://bywim4hbwf77a" path="res://fonts/noto-sans/NotoSans-BlackItalic.ttf" id="1_q07he"]
+
+[node name="Board" type="Node2D"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.095
+autostart = true
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="BackButton" type="Button" parent="Canvas"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 67.0
+offset_bottom = 41.0
+size_flags_horizontal = 3
+text = "Atras"
+script = ExtResource("1_kymhv")
+prev_scene = "uid://b0ic2ni2kyxy2"
+
+[node name="Game" type="VBoxContainer" parent="Canvas"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -257.0
+offset_right = 152.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="HBoxContainer" parent="Canvas/Game"]
+layout_mode = 2
+
+[node name="Points" type="HBoxContainer" parent="Canvas/Game/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/Game/Header/Points"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScoreLabel" type="Label" parent="Canvas/Game/Header/Points/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_q07he")
+theme_override_font_sizes/font_size = 22
+text = "Score:"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Canvas/Game/Header/Points/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_q07he")
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Canvas/Game/Header/Points"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="MaxScoreLabel" type="Label" parent="Canvas/Game/Header/Points/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_q07he")
+theme_override_font_sizes/font_size = 22
+text = "MaxScore:"
+horizontal_alignment = 1
+
+[node name="MaxScore" type="Label" parent="Canvas/Game/Header/Points/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_q07he")
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Board" type="GridContainer" parent="Canvas/Game"]
+layout_mode = 2
+columns = 7
+script = ExtResource("1_knosr")
+
+[node name="Slot" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot2" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot3" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot4" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot5" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot6" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot7" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot8" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot9" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot10" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot11" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot12" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot13" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot14" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot15" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot16" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot17" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot18" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot19" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot20" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot21" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot22" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot23" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot24" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot25" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot26" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot27" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot28" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot29" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot30" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot31" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot32" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot33" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot34" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot35" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot36" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot37" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot38" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot39" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot40" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot41" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot42" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot43" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot44" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot45" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot46" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot47" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot48" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot49" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot50" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot51" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot52" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot53" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot54" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot55" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot56" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot57" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot58" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot59" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot60" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot61" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot62" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot63" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot64" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot65" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot66" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot67" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot68" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot69" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Slot70" parent="Canvas/Game/Board" instance=ExtResource("1_jnyf0")]
+layout_mode = 2
+
+[node name="Separator" type="Control" parent="Canvas/Game"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Separator2" type="Control" parent="Canvas/Game"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Separator3" type="Control" parent="Canvas/Game"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Canvas/Game"]
+layout_mode = 2
+alignment = 1
+
+[node name="Right" type="Button" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<-
+"
+
+[node name="Separator" type="Control" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Stop" type="Button" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="Separator2" type="Control" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Rotate" type="Button" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "R
+"
+
+[node name="Separator3" type="Control" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Left" type="Button" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "->"
+
+[connection signal="timeout" from="Timer" to="Canvas/Game/Board" method="move_all_down"]
+[connection signal="pressed" from="Canvas/Game/Buttons/Right" to="Canvas/Game/Board" method="move_right"]
+[connection signal="pressed" from="Canvas/Game/Buttons/Left" to="Canvas/Game/Board" method="move_left"]
+
+[editable path="Canvas/Game/Board/Slot"]
