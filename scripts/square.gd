@@ -12,11 +12,12 @@ func _ready() -> void:
 	
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	set_drag_preview(_get_preview())
+	if(GlobalTime.TIME_STOPPED):
+		set_drag_preview(_get_preview())
 	return self
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return data is Slot
+	return GlobalTime.TIME_STOPPED and data is Slot
 
 func _drop_data(at_position: Vector2, data) -> void:
 	var temp = square_properties

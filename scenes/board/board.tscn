@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dgr3blxh4e8q"]
+[gd_scene load_steps=21 format=3 uid="uid://dgr3blxh4e8q"]
 
+[ext_resource type="Script" uid="uid://d3b68av4gj4kj" path="res://scenes/board/time_controller.gd" id="1_c6wwm"]
 [ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="1_ci4ar"]
 [ext_resource type="PackedScene" uid="uid://dn57rng00kogb" path="res://scenes/board/square.tscn" id="1_jnyf0"]
 [ext_resource type="Script" uid="uid://bgr6qrbp2wced" path="res://scripts/board.gd" id="1_knosr"]
@@ -45,6 +46,7 @@ events = [SubResource("InputEventKey_kymhv")]
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.095
 autostart = true
+script = ExtResource("1_c6wwm")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -437,6 +439,7 @@ texture = ExtResource("7_dej46")
 [connection signal="pressed" from="Canvas/Game/Buttons/Left" to="Canvas/Game/Board" method="move_right"]
 [connection signal="button_down" from="Canvas/Game/Buttons/Stop" to="Canvas/Game/Buttons/Stop" method="_on_Button_pressed"]
 [connection signal="button_up" from="Canvas/Game/Buttons/Stop" to="Canvas/Game/Buttons/Stop" method="_on_Button_released"]
+[connection signal="pressed" from="Canvas/Game/Buttons/Stop" to="Timer" method="touch_time"]
 [connection signal="button_down" from="Canvas/Game/Buttons/Right" to="Canvas/Game/Buttons/Right" method="_on_Button_pressed"]
 [connection signal="button_up" from="Canvas/Game/Buttons/Right" to="Canvas/Game/Buttons/Right" method="_on_Button_released"]
 [connection signal="pressed" from="Canvas/Game/Buttons/Right" to="Canvas/Game/Board" method="move_left"]
