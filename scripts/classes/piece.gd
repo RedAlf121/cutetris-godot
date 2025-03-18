@@ -8,3 +8,7 @@ func _init(_texture, _faculty, _region) -> void:
 	texture = _texture
 	faculty = _faculty
 	region = _region
+
+#debug
+func print_properties():
+	print("piece:",self,[texture,faculty,region])

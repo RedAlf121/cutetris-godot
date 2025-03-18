@@ -56,7 +56,7 @@ func generate_texture()->Piece:
 	var faculty_route = faculty_textures[faculty_position]
 	var faculty_texture = load(faculty_route)
 	var region = set_region(faculty_route)
-	var square: Piece = Piece.new(faculty_texture,faculty,1)
+	var square: Piece = Piece.new(faculty_texture,faculty,region)
 	return square
 
 func create_faculty(faculty_name: String)->int:
@@ -89,7 +89,7 @@ func set_region(faculty_route: String) -> int:
 func assign_region(region_id: String)->int:
 	match(region_id):
 		"00": return PieceRegion.TOP_LEFT
-		"01": return PieceRegion.TOP_RIGHT
-		"10": return PieceRegion.BOTTOM_LEFT
+		"01": return PieceRegion.BOTTOM_LEFT
+		"10": return PieceRegion.TOP_RIGHT
 		"11": return PieceRegion.BOTTOM_RIGHT
 		_: return -1
