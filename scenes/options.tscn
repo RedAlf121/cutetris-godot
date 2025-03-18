@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BackButton" type="Button" parent="."]
+layout_mode = 0
 offset_right = 71.0
 offset_bottom = 59.0
 text = "Atrás"

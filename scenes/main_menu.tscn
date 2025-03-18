@@ -1,12 +1,40 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0ic2ni2kyxy2"]
+[gd_scene load_steps=13 format=3 uid="uid://b0ic2ni2kyxy2"]
 
-[ext_resource type="Texture2D" uid="uid://xgvtrnuf8645" path="res://imgs/_6a96927c-b80d-4b77-ae27-1872bd4c2403.jpeg" id="1_8ln24"]
 [ext_resource type="FontFile" uid="uid://c0wjck8lg4vxb" path="res://fonts/noto-sans/NotoSans-Black.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://ck3tla0i0cs12" path="res://scripts/exit.gd" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://c8woe5t3vfdmn" path="res://imgs/UI/CUJAE-02.png" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://djcsktvc008xs" path="res://scripts/gotoscene.gd" id="2_wu84c"]
+[ext_resource type="PackedScene" uid="uid://c7mwifqawb3ks" path="res://addons/scenes/menus/options_menu/mini_options_menu.tscn" id="4_oa1go"]
 [ext_resource type="PackedScene" uid="uid://cersatvdh6mul" path="res://scenes/custom_credits.tscn" id="5_rtw2f"]
 [ext_resource type="Script" uid="uid://myeqpmooqun2" path="res://scripts/animation_player.gd" id="7_oa1go"]
+[ext_resource type="AudioStream" uid="uid://7y5nxs6huiun" path="res://sounds/[16-Bit;Genesis]Sono Chino Sadame - JoJo's Bizarre Adventure Part 1.mp3" id="8_tbmy8"]
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_rtw2f"]
 resource_name = "move"
@@ -36,33 +64,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_oa1go"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oa1go"]
 _data = {
 &"RESET": SubResource("Animation_oa1go"),
@@ -82,10 +83,9 @@ anchors_preset = 0
 [node name="background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(244, 381)
-texture = ExtResource("1_8ln24")
 
 [node name="title" type="Sprite2D" parent="."]
-position = Vector2(210, -99.5)
+position = Vector2(210, -99.4997)
 scale = Vector2(0.0701844, 0.0854546)
 skew = 0.00390625
 texture = ExtResource("2_ekxnf")
@@ -122,6 +122,7 @@ text = "Opciones
 "
 flat = true
 script = ExtResource("2_wu84c")
+nextScene = ExtResource("4_oa1go")
 
 [node name="HSeparator2" type="HSeparator" parent="Buttons"]
 modulate = Color(1, 1, 1, 0)
@@ -182,6 +183,8 @@ update_rotation = false
 update_scale = false
 
 [node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tbmy8")
+autoplay = true
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="Buttons/Options" method="_on_pressed"]

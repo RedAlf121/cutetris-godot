@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cersatvdh6mul"]
+[gd_scene load_steps=9 format=3 uid="uid://cersatvdh6mul"]
 
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_menus_template/base/scenes/credits/credits.tscn" id="1_64vgp"]
 [ext_resource type="Script" uid="uid://c03l0kn4j8dqa" path="res://scripts/custom_credits.gd" id="1_n835e"]
-[ext_resource type="Texture2D" uid="uid://xgvtrnuf8645" path="res://imgs/_6a96927c-b80d-4b77-ae27-1872bd4c2403.jpeg" id="2_o755v"]
+[ext_resource type="Texture2D" uid="uid://cbsve1dbkjrgr" path="res://imgs/UI/back button.png" id="3_k6wa7"]
 [ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="3_q2imw"]
-[ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="4_m776r"]
 [ext_resource type="AudioStream" uid="uid://cd5w5tqj4ieco" path="res://sounds/El_Pirata_que_baila_Mi_corazon_encantado_XD.mp3" id="5_yq7ir"]
 [ext_resource type="SpriteFrames" uid="uid://chi6yq24mgc1b" path="res://imgs/UI/cec01d7f0daca356b1d991a3f8aa40c2.gif" id="6_mowk4"]
 [ext_resource type="Script" uid="uid://b53mlws2cb861" path="res://scripts/pirate_gif.gd" id="7_k6wa7"]
@@ -28,18 +27,17 @@ attribution_file_path = "res://addons/ATTRIBUTION.md"
 modulate = Color(0, 0, 0, 1)
 z_index = -6
 position = Vector2(244, 381)
-texture = ExtResource("2_o755v")
 
 [node name="BackButton" type="Button" parent="."]
 material = SubResource("ShaderMaterial_m776r")
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 1254.0
 offset_bottom = 639.0
 scale = Vector2(0.07, 0.07)
 size_flags_horizontal = 3
-text = "Atras"
-icon = ExtResource("4_m776r")
+icon = ExtResource("3_k6wa7")
 flat = true
 
 [node name="GoBackNode" type="Node" parent="."]

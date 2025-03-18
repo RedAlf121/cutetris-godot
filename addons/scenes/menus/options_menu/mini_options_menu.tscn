@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7mwifqawb3ks"]
+[gd_scene load_steps=4 format=3 uid="uid://c7mwifqawb3ks"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/mini_options_menu.tscn" id="1_0btpe"]
-[ext_resource type="Script" path="res://addons/scenes/menus/options_menu/mini_options_menu.gd" id="2_uyyi4"]
+[ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/mini_options_menu.tscn" id="1_0btpe"]
+[ext_resource type="Script" uid="uid://gjd6hlbmo233" path="res://addons/scenes/menus/options_menu/mini_options_menu.gd" id="2_uyyi4"]
+[ext_resource type="Script" uid="uid://joh7i0xc6psu" path="res://addons/scenes/menus/options_menu/button.gd" id="3_uyyi4"]
 
 [node name="MiniOptionsMenu" instance=ExtResource("1_0btpe")]
+offset_left = -210.0
+offset_top = -322.0
+offset_right = 208.0
+offset_bottom = 317.0
 script = ExtResource("2_uyyi4")
+
+[node name="FullscreenControl" parent="." index="2"]
+visible = false
+
+[node name="Button" type="Button" parent="." index="3"]
+layout_mode = 2
+text = "Salir al menu"
+flat = true
+script = ExtResource("3_uyyi4")
