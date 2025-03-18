@@ -9,7 +9,6 @@ var square_properties: Piece
 
 func _ready() -> void:
 	texture_rect.texture = panel_texture
-	
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if(GlobalTime.TIME_STOPPED):
@@ -53,3 +52,10 @@ func set_square_properties(square: Piece):
 		set_texture(square_properties.texture)
 	else:
 		set_texture(null)
+
+
+func make_it_gold():
+	var tween = get_tree().create_tween()
+	var end_color = Color(1, 0.84, 0)     
+
+	tween.tween_property(texture_rect, "modulate", end_color, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

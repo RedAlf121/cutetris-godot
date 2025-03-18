@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgr3blxh4e8q"]
+[gd_scene load_steps=24 format=3 uid="uid://dgr3blxh4e8q"]
 
 [ext_resource type="Script" uid="uid://d3b68av4gj4kj" path="res://scripts/time_controller.gd" id="1_c6wwm"]
 [ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="1_ci4ar"]
 [ext_resource type="PackedScene" uid="uid://dn57rng00kogb" path="res://scenes/board/square.tscn" id="1_jnyf0"]
-[ext_resource type="Script" uid="uid://bt7ifw8cm31m2" path="res://scripts/game_manager.gd" id="1_k8r4w"]
 [ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="1_kymhv"]
 [ext_resource type="FontFile" uid="uid://bywim4hbwf77a" path="res://fonts/noto-sans/NotoSans-BlackItalic.ttf" id="1_q07he"]
 [ext_resource type="Texture2D" uid="uid://thrr42mhajlv" path="res://imgs/UI/buttons/botones-png-transparente/10-fotor-bg-remover-20250222132458.png" id="6_exf0g"]
@@ -13,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dxwh348bcjtd1" path="res://imgs/UI/buttons/botones-png-transparente/30-fotor-bg-remover-20250222132520.png" id="10_k8r4w"]
 
 [sub_resource type="GDScript" id="GDScript_c6wwm"]
-script/source = "extends GridContainer
+script/source = "class_name Board extends GridContainer
 
 
 @onready var slots: Array = get_children()
@@ -31,9 +30,8 @@ func  _ready() -> void:
 func create_texture()->void:
 	var square = TextureManager.generate_texture()
 	if(has_slot_in_position(0,int(columns/2.0))):
-		var points = collect_points()
-		Score.increase_score(points)
-		emit_signal(\"gameover\",points)
+		print(collect_points())
+		emit_signal(\"gameover\")
 		print(\"game_over\")
 	var slot: Slot = get_slot_at_position(0,int(columns/2.0))
 	slot.set_square_properties(square)
@@ -221,7 +219,6 @@ keycode = 4194321
 events = [SubResource("InputEventKey_kymhv")]
 
 [node name="Board" type="Node2D"]
-script = ExtResource("1_k8r4w")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.095
@@ -619,18 +616,9 @@ texture = ExtResource("7_dej46")
 
 [node name="ZaWarudo" type="AudioStreamPlayer" parent="."]
 
-[node name="AcceptDialog" type="ConfirmationDialog" parent="."]
-title = "Game Over"
-initial_position = 1
-size = Vector2i(300, 100)
-ok_button_text = "Volver a jugar"
-dialog_hide_on_ok = false
-dialog_close_on_escape = false
-cancel_button_text = "Menu Principal"
-
 [connection signal="timeout" from="Timer" to="Canvas/Game/Board" method="on_timeout"]
 [connection signal="pressed" from="Canvas/BackButton" to="Canvas/BackButton" method="go_back"]
-[connection signal="gameover" from="Canvas/Game/Board" to="." method="on_game_over"]
+[connection signal="gameover" from="Canvas/Game/Board" to="Timer" method="touch_time"]
 [connection signal="button_down" from="Canvas/Game/Buttons/Left" to="Canvas/Game/Buttons/Left" method="_on_Button_pressed"]
 [connection signal="button_up" from="Canvas/Game/Buttons/Left" to="Canvas/Game/Buttons/Left" method="_on_Button_released"]
 [connection signal="pressed" from="Canvas/Game/Buttons/Left" to="Canvas/Game/Board" method="move_right"]
@@ -644,8 +632,5 @@ cancel_button_text = "Menu Principal"
 [connection signal="button_down" from="Canvas/Game/Buttons/Right" to="Canvas/Game/Buttons/Right" method="_on_Button_pressed"]
 [connection signal="button_up" from="Canvas/Game/Buttons/Right" to="Canvas/Game/Buttons/Right" method="_on_Button_released"]
 [connection signal="pressed" from="Canvas/Game/Buttons/Right" to="Canvas/Game/Board" method="move_left"]
-[connection signal="canceled" from="AcceptDialog" to="." method="main_menu"]
-[connection signal="close_requested" from="AcceptDialog" to="." method="retry"]
-[connection signal="confirmed" from="AcceptDialog" to="." method="retry"]
 
 [editable path="Canvas/Game/Board/Slot"]
