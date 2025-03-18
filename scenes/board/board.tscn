@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgr3blxh4e8q"]
+[gd_scene load_steps=27 format=3 uid="uid://dgr3blxh4e8q"]
 
-[ext_resource type="Script" path="res://scripts/time_controller.gd" id="1_c6wwm"]
+[ext_resource type="Script" uid="uid://d3b68av4gj4kj" path="res://scripts/time_controller.gd" id="1_c6wwm"]
 [ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="1_ci4ar"]
 [ext_resource type="PackedScene" uid="uid://dn57rng00kogb" path="res://scenes/board/square.tscn" id="1_jnyf0"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_k8r4w"]
+[ext_resource type="Script" uid="uid://bt7ifw8cm31m2" path="res://scripts/game_manager.gd" id="1_k8r4w"]
 [ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="1_kymhv"]
 [ext_resource type="FontFile" uid="uid://bywim4hbwf77a" path="res://fonts/noto-sans/NotoSans-BlackItalic.ttf" id="1_q07he"]
 [ext_resource type="Texture2D" uid="uid://thrr42mhajlv" path="res://imgs/UI/buttons/botones-png-transparente/10-fotor-bg-remover-20250222132458.png" id="6_exf0g"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://di3gwwo2180dp" path="res://imgs/UI/buttons/botones-png-transparente/00-fotor-bg-remover-20250222131012.png" id="7_dej46"]
 [ext_resource type="Texture2D" uid="uid://ciblmemb2sfjk" path="res://imgs/UI/buttons/pngwing.com (2).png" id="7_rpdi3"]
 [ext_resource type="Texture2D" uid="uid://dxwh348bcjtd1" path="res://imgs/UI/buttons/botones-png-transparente/30-fotor-bg-remover-20250222132520.png" id="10_k8r4w"]
+[ext_resource type="AudioStream" uid="uid://be7roxysq0xc0" path="res://sounds/Original_Tetris_theme_Tetris_Soundtrack.wav" id="12_w0prs"]
+[ext_resource type="AudioStream" uid="uid://b1k6nssfqv8xj" path="res://sounds/Za_Warudo_-_Sound_Effect.mp3" id="13_hxlvt"]
 
 [sub_resource type="GDScript" id="GDScript_c6wwm"]
 script/source = "extends GridContainer
@@ -612,8 +614,11 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_dej46")
 
 [node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_w0prs")
+autoplay = true
 
 [node name="ZaWarudo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_hxlvt")
 
 [node name="AcceptDialog" type="ConfirmationDialog" parent="."]
 title = "Game Over"
@@ -624,6 +629,7 @@ dialog_hide_on_ok = false
 dialog_close_on_escape = false
 cancel_button_text = "Menu Principal"
 
+[connection signal="stopping_time" from="Timer" to="." method="change_stop_time_texture"]
 [connection signal="timeout" from="Timer" to="Canvas/Game/Board" method="on_timeout"]
 [connection signal="pressed" from="Canvas/BackButton" to="Canvas/BackButton" method="go_back"]
 [connection signal="gameover" from="Canvas/Game/Board" to="." method="on_game_over"]
