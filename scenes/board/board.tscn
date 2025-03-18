@@ -1,9 +1,9 @@
 [gd_scene load_steps=25 format=3 uid="uid://dgr3blxh4e8q"]
 
-[ext_resource type="Script" uid="uid://d3b68av4gj4kj" path="res://scripts/time_controller.gd" id="1_c6wwm"]
+[ext_resource type="Script" path="res://scripts/time_controller.gd" id="1_c6wwm"]
 [ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="1_ci4ar"]
 [ext_resource type="PackedScene" uid="uid://dn57rng00kogb" path="res://scenes/board/square.tscn" id="1_jnyf0"]
-[ext_resource type="Script" uid="uid://bt7ifw8cm31m2" path="res://scripts/game_manager.gd" id="1_k8r4w"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_k8r4w"]
 [ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="1_kymhv"]
 [ext_resource type="FontFile" uid="uid://bywim4hbwf77a" path="res://fonts/noto-sans/NotoSans-BlackItalic.ttf" id="1_q07he"]
 [ext_resource type="Texture2D" uid="uid://thrr42mhajlv" path="res://imgs/UI/buttons/botones-png-transparente/10-fotor-bg-remover-20250222132458.png" id="6_exf0g"]
@@ -526,8 +526,6 @@ size_flags_horizontal = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k8r4w")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0prs")
 shortcut = SubResource("Shortcut_dej46")
-text = "<-
-"
 flat = true
 script = ExtResource("6_rpdi3")
 
@@ -575,8 +573,6 @@ size_flags_horizontal = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k8r4w")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0prs")
 shortcut = SubResource("Shortcut_w0prs")
-text = "<-
-"
 flat = true
 script = ExtResource("6_rpdi3")
 
