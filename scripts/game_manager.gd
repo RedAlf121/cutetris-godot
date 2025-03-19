@@ -13,6 +13,7 @@ var play_texture = preload("res://imgs/UI/buttons/pngwing.com (3).png")
 var stop_texture = preload("res://imgs/UI/buttons/pngwing.com (2).png") 
 
 func _ready() -> void:
+	Score.load_points()
 	max_score.text = str(Score.max_score)
 
 func change_stop_time_texture():

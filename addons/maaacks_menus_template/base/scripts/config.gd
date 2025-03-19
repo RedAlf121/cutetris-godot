@@ -3,7 +3,7 @@ extends Object
 
 ## Interface for a single configuration file through [ConfigFile].
 
-const CONFIG_FILE_LOCATION := "user://config.cfg"
+const CONFIG_FILE_LOCATION := "user://settings.cfg"
 
 static var config_file : ConfigFile
 
