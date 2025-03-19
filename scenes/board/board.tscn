@@ -41,10 +41,8 @@ func create_texture()->void:
 	var square = TextureManager.generate_texture()
 	if(has_slot_in_position(0,int(columns/2.0))):
 		var points = collect_points()
-		Score.increase_score(points)
-		
+		Score.increase_score(points)		
 		emit_signal(\"gameover\",points)
-		print(\"game_over\")
 	var slot: Slot = get_slot_at_position(0,int(columns/2.0))
 	slot.set_square_properties(square)
 	slot.square_properties.print_properties()

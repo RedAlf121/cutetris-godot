@@ -12,8 +12,11 @@ func increase_score(value: int)->void:
 		config.set_value("general","max_score",max_score)
 		config.save("user://settings.cfg")
 
+func debug_score():
+	print(max_score," ", Config.new().get_config("general","max_score",-1))
 
 func load_points():
 	var config = Config.new()
-	print(config.get_config("general","max_score",-1))
-	max_score = config.get_config("general","max_score",0)
+	var stored_score = config.get_config("general","max_score",-1)
+	if(max_score<stored_score):
+		max_score=stored_score
