@@ -9,3 +9,4 @@ func _on_Button_pressed():
 
 func _on_Button_released():
 	$TextureRect.modulate = Color(1, 1, 1,1)  # Restaurar color
+	release_focus()
