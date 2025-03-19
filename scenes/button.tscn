@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://diyo7im6sevkq"]
+
+[ext_resource type="Script" uid="uid://be4h1y3wvs04u" path="res://button.gd" id="1_mi6dp"]
+
+[node name="Back" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Volver al menu principal"
+flat = true
+script = ExtResource("1_mi6dp")
