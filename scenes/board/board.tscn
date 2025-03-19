@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://dgr3blxh4e8q"]
+[gd_scene load_steps=27 format=3 uid="uid://dgr3blxh4e8q"]
 
 [ext_resource type="Script" uid="uid://d3b68av4gj4kj" path="res://scripts/time_controller.gd" id="1_c6wwm"]
+[ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="1_ci4ar"]
 [ext_resource type="PackedScene" uid="uid://dn57rng00kogb" path="res://scenes/board/square.tscn" id="1_jnyf0"]
 [ext_resource type="Script" uid="uid://bt7ifw8cm31m2" path="res://scripts/game_manager.gd" id="1_k8r4w"]
 [ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="1_kymhv"]
@@ -578,6 +579,30 @@ offset_right = 4104.0
 offset_bottom = 4090.0
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("11_kug5n")
+
+[node name="Separator3" type="Control" parent="Canvas/Game/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Down" type="Button" parent="Canvas/Game/Buttons"]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k8r4w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0prs")
+shortcut = SubResource("Shortcut_w0prs")
+flat = true
+script = ExtResource("6_rpdi3")
+
+[node name="TextureRect" type="TextureRect" parent="Canvas/Game/Buttons/Down"]
+z_index = 2
+layout_mode = 0
+offset_left = 8.0
+offset_top = -12.0
+offset_right = 1008.0
+offset_bottom = 968.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_k8r4w")
 
 [node name="Separator3" type="Control" parent="Canvas/Game/Buttons"]
 layout_mode = 2
