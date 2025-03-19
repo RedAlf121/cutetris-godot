@@ -31,6 +31,7 @@ window/size/viewport_width=420
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [editor]
 
