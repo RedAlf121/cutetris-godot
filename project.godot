@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cutetris"
-run/main_scene="res://addons/scenes/opening/opening_with_logo.tscn"
+run/main_scene="uid://b0ic2ni2kyxy2"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -31,6 +31,10 @@ window/size/viewport_width=420
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/movie_file="D:/Proyectos/Games/Godot/Testing/Escuela/cutetris/gameplayprueba.avi"
 
 [editor_plugins]
 
