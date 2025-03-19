@@ -1,18 +1,26 @@
-[gd_scene load_steps=27 format=3 uid="uid://dgr3blxh4e8q"]
+[gd_scene load_steps=31 format=3 uid="uid://dgr3blxh4e8q"]
 
 [ext_resource type="Script" uid="uid://d3b68av4gj4kj" path="res://scripts/time_controller.gd" id="1_c6wwm"]
-[ext_resource type="Texture2D" uid="uid://djtfpkmmxsw8u" path="res://imgs/UI/goback.png" id="1_ci4ar"]
 [ext_resource type="PackedScene" uid="uid://dn57rng00kogb" path="res://scenes/board/square.tscn" id="1_jnyf0"]
 [ext_resource type="Script" uid="uid://bt7ifw8cm31m2" path="res://scripts/game_manager.gd" id="1_k8r4w"]
 [ext_resource type="Script" uid="uid://bmvb2g4ki1n4g" path="res://scripts/gobackscene.gd" id="1_kymhv"]
 [ext_resource type="FontFile" uid="uid://bywim4hbwf77a" path="res://fonts/noto-sans/NotoSans-BlackItalic.ttf" id="1_q07he"]
+[ext_resource type="Texture2D" uid="uid://xgvtrnuf8645" path="res://imgs/_6a96927c-b80d-4b77-ae27-1872bd4c2403.jpeg" id="2_kug5n"]
+[ext_resource type="Texture2D" uid="uid://cbsve1dbkjrgr" path="res://imgs/UI/back button.png" id="4_kug5n"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://MinimalUI4/MinimalUI.tres" id="5_dj4mb"]
 [ext_resource type="Texture2D" uid="uid://thrr42mhajlv" path="res://imgs/UI/buttons/botones-png-transparente/10-fotor-bg-remover-20250222132458.png" id="6_exf0g"]
 [ext_resource type="Script" uid="uid://dlokw6k7h1uqw" path="res://scripts/button_vfx.gd" id="6_rpdi3"]
 [ext_resource type="Texture2D" uid="uid://di3gwwo2180dp" path="res://imgs/UI/buttons/botones-png-transparente/00-fotor-bg-remover-20250222131012.png" id="7_dej46"]
-[ext_resource type="Texture2D" uid="uid://ciblmemb2sfjk" path="res://imgs/UI/buttons/pngwing.com (2).png" id="7_rpdi3"]
 [ext_resource type="Texture2D" uid="uid://dxwh348bcjtd1" path="res://imgs/UI/buttons/botones-png-transparente/30-fotor-bg-remover-20250222132520.png" id="10_k8r4w"]
+[ext_resource type="Texture2D" uid="uid://byekmrlg6ees4" path="res://imgs/UI/buttons/icons8-reloj-50.png" id="11_kug5n"]
 [ext_resource type="AudioStream" uid="uid://be7roxysq0xc0" path="res://sounds/Original_Tetris_theme_Tetris_Soundtrack.wav" id="12_w0prs"]
 [ext_resource type="AudioStream" uid="uid://b1k6nssfqv8xj" path="res://sounds/Za_Warudo_-_Sound_Effect.mp3" id="13_hxlvt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj4mb"]
+bg_color = Color(0.868985, 0.868985, 0.868985, 1)
+
+[sub_resource type="Theme" id="Theme_kug5n"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_dj4mb")
 
 [sub_resource type="GDScript" id="GDScript_c6wwm"]
 script/source = "extends GridContainer
@@ -225,6 +233,11 @@ events = [SubResource("InputEventKey_kymhv")]
 [node name="Board" type="Node2D"]
 script = ExtResource("1_k8r4w")
 
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(244, 381)
+texture = ExtResource("2_kug5n")
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.095
 autostart = true
@@ -241,7 +254,7 @@ offset_bottom = 639.0
 scale = Vector2(0.07, 0.07)
 size_flags_horizontal = 3
 text = "Atras"
-icon = ExtResource("1_ci4ar")
+icon = ExtResource("4_kug5n")
 flat = true
 script = ExtResource("1_kymhv")
 prev_scene = "uid://b0ic2ni2kyxy2"
@@ -258,6 +271,7 @@ offset_right = 152.0
 offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_dj4mb")
 
 [node name="Header" type="HBoxContainer" parent="Canvas/Game"]
 layout_mode = 2
@@ -292,6 +306,7 @@ vertical_alignment = 1
 [node name="Board" type="GridContainer" parent="Canvas/Game"]
 z_index = 100
 layout_mode = 2
+theme = SubResource("Theme_kug5n")
 columns = 7
 script = SubResource("GDScript_c6wwm")
 
@@ -562,7 +577,7 @@ offset_top = -6.0
 offset_right = 4104.0
 offset_bottom = 4090.0
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("7_rpdi3")
+texture = ExtResource("11_kug5n")
 
 [node name="Separator3" type="Control" parent="Canvas/Game/Buttons"]
 layout_mode = 2

@@ -10,7 +10,7 @@ extends Node2D
 @onready var background: AudioStreamPlayer = $Background
 
 var play_texture = preload("res://imgs/UI/buttons/pngwing.com (3).png")
-var stop_texture = preload("res://imgs/UI/buttons/pngwing.com (2).png") 
+var stop_texture = preload("res://.godot/imported/icons8-reloj-50.png-bd479b3bae47eed0a356293192393a93.ctex") 
 
 func _ready() -> void:
 	Score.load_points()

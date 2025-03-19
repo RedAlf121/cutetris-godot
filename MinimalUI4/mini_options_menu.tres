@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://l4vig2usjyrc"]
+
+[ext_resource type="FontFile" uid="uid://c0wjck8lg4vxb" path="res://fonts/noto-sans/NotoSans-Black.ttf" id="1_o4vvc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vohhj"]
+bg_color = Color(0.458824, 1, 0.607843, 1)
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("1_o4vvc")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vohhj")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vohhj")

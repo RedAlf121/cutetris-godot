@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0ic2ni2kyxy2"]
+[gd_scene load_steps=16 format=3 uid="uid://b0ic2ni2kyxy2"]
 
+[ext_resource type="Texture2D" uid="uid://xgvtrnuf8645" path="res://imgs/_6a96927c-b80d-4b77-ae27-1872bd4c2403.jpeg" id="1_8ln24"]
 [ext_resource type="FontFile" uid="uid://c0wjck8lg4vxb" path="res://fonts/noto-sans/NotoSans-Black.ttf" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://MinimalUI4/MinimalUI.tres" id="1_lgwnu"]
 [ext_resource type="Script" uid="uid://ck3tla0i0cs12" path="res://scripts/exit.gd" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://c8woe5t3vfdmn" path="res://imgs/UI/CUJAE-02.png" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://djcsktvc008xs" path="res://scripts/gotoscene.gd" id="2_wu84c"]
@@ -9,33 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dgr3blxh4e8q" path="res://scenes/board/board.tscn" id="5_tbmy8"]
 [ext_resource type="Script" uid="uid://myeqpmooqun2" path="res://scripts/animation_player.gd" id="7_oa1go"]
 [ext_resource type="AudioStream" uid="uid://7y5nxs6huiun" path="res://sounds/[16-Bit;Genesis]Sono Chino Sadame - JoJo's Bizarre Adventure Part 1.mp3" id="8_tbmy8"]
-
-[sub_resource type="Animation" id="Animation_oa1go"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_oa1go"]
 length = 0.001
@@ -107,10 +82,12 @@ point_count = 2
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_lgwnu")
 
 [node name="background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(244, 381)
+texture = ExtResource("1_8ln24")
 
 [node name="title" type="Sprite2D" parent="."]
 position = Vector2(210, -99.4997)

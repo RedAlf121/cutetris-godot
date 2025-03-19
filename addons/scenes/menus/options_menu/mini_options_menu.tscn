@@ -1,21 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7mwifqawb3ks"]
+[gd_scene load_steps=8 format=3 uid="uid://c7mwifqawb3ks"]
 
 [ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/mini_options_menu.tscn" id="1_0btpe"]
+[ext_resource type="Theme" uid="uid://b3kq74llqlv3x" path="res://MinimalUI4/MinimalUI.tres" id="2_ghhf5"]
 [ext_resource type="Script" uid="uid://gjd6hlbmo233" path="res://addons/scenes/menus/options_menu/mini_options_menu.gd" id="2_uyyi4"]
 [ext_resource type="Script" uid="uid://joh7i0xc6psu" path="res://addons/scenes/menus/options_menu/button.gd" id="3_uyyi4"]
+[ext_resource type="FontFile" uid="uid://c0wjck8lg4vxb" path="res://fonts/noto-sans/NotoSans-Black.ttf" id="4_vohhj"]
+[ext_resource type="Texture2D" uid="uid://xgvtrnuf8645" path="res://imgs/_6a96927c-b80d-4b77-ae27-1872bd4c2403.jpeg" id="4_y6xfs"]
+[ext_resource type="AudioStream" uid="uid://dq6kekqtci5sm" path="res://sounds/Nintendo_3DS_Internet_Settings_Theme_High_Quality_2022_Remastered.mp3" id="5_uan5m"]
 
 [node name="MiniOptionsMenu" instance=ExtResource("1_0btpe")]
 offset_left = -210.0
 offset_top = -322.0
 offset_right = 208.0
 offset_bottom = 317.0
+theme = ExtResource("2_ghhf5")
 script = ExtResource("2_uyyi4")
 
-[node name="FullscreenControl" parent="." index="2"]
+[node name="background" type="Sprite2D" parent="." index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(244, 381)
+texture = ExtResource("4_y6xfs")
+
+[node name="FullscreenControl" parent="." index="3"]
 visible = false
 
-[node name="Button" type="Button" parent="." index="3"]
+[node name="Button" type="Button" parent="." index="4"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vohhj")
 text = "Salir al menu"
 flat = true
 script = ExtResource("3_uyyi4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("5_uan5m")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
